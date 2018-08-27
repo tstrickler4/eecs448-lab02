@@ -101,12 +101,16 @@ template <typename T>
 bool LinkedList<T>::removeBack()
 {
 	Node<T>* lastNode = nullptr;
-	Node<T>* secondintoLast = nullptr;
+	Node<T>* secondintoLast = m_front;
 	bool isRemoved = false;
-
-	/** TODO 
-		Fix this method
-	*/
+	
+	while (secondintoLast.getNext().getNext() != nullptr)
+	{
+		secondintoLast = secondintoLast.getNext();
+	}
+	lastNode = secondintoLast.getNext();
+	delete(lastNode);
+	secondintoLast.setNext(nullptr);
 
 	return(isRemoved);
 }	
